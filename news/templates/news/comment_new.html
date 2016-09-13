@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+
+{% block content %}
+	<div class="col-md-8">
+		<div class="article-new">
+			<h2>Dodaj komentarz:</h2>
+		</div>
+		<div class="article-new">
+			<form method="POST" class="comment-form">{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit" class=" dodaj save btn btn-default">Dodaj</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

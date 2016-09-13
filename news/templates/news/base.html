@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+	<head>
+		<title>Informacje</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{% static "css/website.css" %}">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Informacje</a>
+				</div>
+				<ul id="my-nav" class="nav navbar-nav">
+				  <li><a href="/">Strona główna</a></li>
+				  <li><a href="/category/2">Polska</a></li>
+				  <li><a href="/category/1">Świat</a></li>
+				  <li><a href="/category/3">Biznes</a></li>
+				  <li><a href="/category/4">Sport</a></li>
+				  <li><a href="/article/new">Dodaj informację</a></li>
+				</ul>
+			</nav>
+			<div class="margin">
+			</div>
+			{% block content %}
+			{% endblock %}
+		</div>
+		
+	</body>
+	

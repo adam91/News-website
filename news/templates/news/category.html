@@ -1,0 +1,23 @@
+{% extends "news/base.html" %}
+
+{% block content%}
+	<div class="margin">
+	</div>
+	{% for article in articles %}
+		<div class="category-article-list">
+			<div class="col-md-8">
+				<div class="col-md-4">
+					<a href="{% url 'article_detail' pk=article.pk %}"><img src={{ article.photo.url }}/></a>
+				</div>
+				<div class="col-md-8">
+					<h3><a href="{% url 'article_detail' pk=article.pk %}">{{article.title}}</a></h3>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="article-list-text">
+					<h4><a href="{% url 'article_detail' pk=article.pk %}">{{ article.text|linebreaks|truncatewords:20 }}</a></h4>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

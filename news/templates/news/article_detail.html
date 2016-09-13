@@ -1,0 +1,26 @@
+{% extends "news/base.html" %}
+
+{% block content%}
+	<div class="col-md-8">
+		<h1>{{ article.title }}</h1>
+		<img class="article-img" src={{ article.photo.url }}/>
+		{{ article.created_date }}
+		<div>
+			<h3>{{ article.text|linebreaks }}</h3>
+		</div>
+		<p>Źródło: {{ article.source }} </p>
+	</div>
+	<div class="col-md-4">
+		<a class=" add-comment btn btn-default" href="{% url 'comment_new' pk=article.pk %}">Dodaj komentarz</a>
+		{% for comment in article.comments.all %}
+		<div class="comment">
+			<div class="date">
+				{{ comment.created_date }}
+			</div>
+			<strong>{{ comment.author }}</strong>
+			<p>{{ comment.text|linebreaks }}</p>
+		{% empty %}
+			<p style="text-align: center">Nikt nie skomentował jeszcze tego artykułu.</p>
+		</div>
+		{% endfor %}
+{% endblock %}
